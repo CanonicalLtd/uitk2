@@ -1,13 +1,16 @@
 SOURCES += \
     $$PWD/ubuntustyle.cpp \
     $$PWD/ubuntutheme.cpp \
-    $$PWD/ubuntuanimation.cpp
+    $$PWD/ubuntuanimation.cpp \
+    $$PWD/ubuntunumberanimation.cpp
+
 
 HEADERS += \
     $$PWD/ubuntutoolkitglobal.h \
     $$PWD/ubuntustyle_p.h \
     $$PWD/ubuntutheme_p.h \
-    $$PWD/ubuntuanimation_p.h
+    $$PWD/ubuntuanimation_p.h \
+    $$PWD/ubuntunumberanimation_p.h
 
 QML_PRIVATE_FILES += \
     $$PWD/Palette.qml \

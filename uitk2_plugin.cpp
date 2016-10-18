@@ -19,6 +19,7 @@
 #include "ubuntutheme_p.h"
 #include "ubuntustyle_p.h"
 #include "ubuntuanimation_p.h"
+#include "ubuntunumberanimation_p.h"
 
 UT_NAMESPACE_BEGIN
 
@@ -40,6 +41,7 @@ void Uitk2Plugin::registerTypes(const char *uri)
 
     qmlRegisterUncreatableType<UbuntuStyle>(uri, 2, 0, "UbuntuStyle", QStringLiteral("UbuntuStyle is an attached object"));
     qmlRegisterSimpleSingletonType<UbuntuAnimation>(uri, 2, 0, "UbuntuAnimation");
+    qmlRegisterType<UbuntuNumberAnimation>(uri, 2, 0, "UbuntuNumberAnimation");
     qmlRegisterSingletonType(typeUrl(QStringLiteral("UbuntuColors.qml")), uri, 2, 0, "UbuntuColors");
 }
 
