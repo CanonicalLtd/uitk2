@@ -25,6 +25,7 @@ QML_PRIVATE_FILES += \
 QML_FILES += \
     $$QML_PRIVATE_FILES \
     $$PWD/UbuntuColors.qml \
+    $$PWD/BusyIndicator.qml \
     $$PWD/Button.qml
 
 # yet
