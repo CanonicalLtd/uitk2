@@ -18,8 +18,10 @@
 
 #include "ubuntutheme_p.h"
 #include "ubuntustyle_p.h"
+#include "palettevalues_p.h"
 #include "ubuntuanimation_p.h"
 #include "ubuntunumberanimation_p.h"
+#include "themeiconprovider_p.h"
 
 UT_NAMESPACE_BEGIN
 
@@ -40,18 +42,19 @@ void Uitk2Plugin::registerTypes(const char *uri)
     m_pluginBase = baseUrl();
 
     qmlRegisterUncreatableType<UbuntuStyle>(uri, 2, 0, "UbuntuStyle", QStringLiteral("UbuntuStyle is an attached object"));
+    qmlRegisterUncreatableType<PaletteValues>(uri, 2, 0, "PaletteValues", QStringLiteral("PaletteValues cannot be instantiated"));
     qmlRegisterSimpleSingletonType<UbuntuAnimation>(uri, 2, 0, "UbuntuAnimation");
     qmlRegisterType<UbuntuNumberAnimation>(uri, 2, 0, "UbuntuNumberAnimation");
-    qmlRegisterSingletonType(typeUrl(QStringLiteral("UbuntuColors.qml")), uri, 2, 0, "UbuntuColors");
+
+    qmlRegisterType(typeUrl(QStringLiteral("Icon.qml")), uri, 2, 0, "Icon");
+    qRegisterMetaType<PaletteValues*>("PaletteValues*");
 }
 
 void Uitk2Plugin::initializeEngine(QQmlEngine *engine, const char *uri)
 {
     QQuickStylePlugin::initializeEngine(engine, uri);
 
-    const char *internalUri = "QtQuick.Controls.Ubuntu.Privates";
-    qmlRegisterType(typeUrl(QStringLiteral("PaletteValues.qml")), internalUri, 2, 0, "PaletteValues");
-    qmlRegisterType(typeUrl(QStringLiteral("Palette.qml")), internalUri, 2, 0, "Palette");
+    engine->addImageProvider(QLatin1String("theme"), new ThemeIconProvider);
 }
 
 QUrl Uitk2Plugin::pluginUrl()

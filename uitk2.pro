@@ -16,8 +16,7 @@ SOURCES += \
     $$PWD/uitk2_plugin.cpp
 
 HEADERS += \
-    $$PWD/uitk2_plugin.h \
-    ubuntunumberanimation_p.h
+    $$PWD/uitk2_plugin.h
 
 #RESOURCES += \
 #    $$PWD/uitk2_plugin.qrc

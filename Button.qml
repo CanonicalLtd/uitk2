@@ -33,16 +33,18 @@ T.Button {
     leftPadding: padding - 4
     rightPadding: padding - 4
 
+    // focus policy
+    focusPolicy: Qt.StrongFocus
 
     //! [contentItem]
     contentItem: Text {
         text: control.text
         font: control.font
         color: !control.enabled
-                    ? control.UbuntuStyle.palette.disabled.baseText
+                    ? control.UbuntuStyle.disabled.baseText
                     : (control.down
-                        ? control.UbuntuStyle.palette.highlighted.baseText
-                        : control.UbuntuStyle.palette.normal.baseText)
+                        ? control.UbuntuStyle.highlighted.baseText
+                        : control.UbuntuStyle.normal.baseText)
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         elide: Text.ElideRight
@@ -67,13 +69,13 @@ T.Button {
         height: parent.height - 12
         radius: 5
         color: !control.enabled
-                    ? control.UbuntuStyle.palette.disabled.base
+                    ? control.UbuntuStyle.disabled.base
                     : (control.down
-                        ? control.UbuntuStyle.palette.highlighted.base
-                        : control.UbuntuStyle.palette.normal.base)
+                        ? control.UbuntuStyle.highlighted.base
+                        : control.UbuntuStyle.normal.base)
         border {
-            width: control.visualFocus ? 1 : 0
-            color: control.UbuntuStyle.palette.normal.focus
+            width: (control.visualFocus || control.focusReason == Qt.TabFocus) ? 1 : 0
+            color: control.UbuntuStyle.normal.focus
         }
 
         Behavior on color {

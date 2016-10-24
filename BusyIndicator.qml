@@ -18,7 +18,6 @@ import QtQuick 2.6
 import QtQuick.Templates 2.0 as T
 import QtQuick.Controls.Ubuntu 2.0
 // FIXME use ProgressRing from Material, we need our own one
-import QtQuick.Controls.Ubuntu.Privates 2.0
 import QtQuick.Controls.Material.impl 2.0
 
 T.BusyIndicator {
@@ -39,7 +38,7 @@ T.BusyIndicator {
         width: size
         height: size
         opacity: control.running ? 1 : 0
-        color: control.UbuntuStyle.palette.focused.activity
+        color: control.UbuntuStyle.normal.activity
 
         readonly property real size: Math.min(control.availableWidth, control.availableHeight)
 

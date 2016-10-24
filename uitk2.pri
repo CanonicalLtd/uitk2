@@ -2,31 +2,27 @@ SOURCES += \
     $$PWD/ubuntustyle.cpp \
     $$PWD/ubuntutheme.cpp \
     $$PWD/ubuntuanimation.cpp \
-    $$PWD/ubuntunumberanimation.cpp
-
+    $$PWD/ubuntunumberanimation.cpp \
+    $$PWD/themeiconprovider.cpp \
+    $$PWD/palettevalues.cpp
 
 HEADERS += \
     $$PWD/ubuntutoolkitglobal.h \
     $$PWD/ubuntustyle_p.h \
     $$PWD/ubuntutheme_p.h \
     $$PWD/ubuntuanimation_p.h \
-    $$PWD/ubuntunumberanimation_p.h
+    $$PWD/ubuntunumberanimation_p.h \
+    $$PWD/themeiconprovider_p.h \
+    $$PWD/palettevalues_p.h
 
-QML_PRIVATE_FILES += \
-    $$PWD/Palette.qml \
-    $$PWD/PaletteValues.qml \
-    $$PWD/SuruPalette.qml \
-    $$PWD/SuruNormal.qml \
-    $$PWD/SuruSelected.qml \
-    $$PWD/SuruDarkPalette.qml \
-    $$PWD/SuruDarkNormal.qml \
-    $$PWD/SuruDarkSelected.qml
+QML_UBUNTU_FILES = \
+    $$PWD/Icon.qml
 
 QML_FILES += \
-    $$QML_PRIVATE_FILES \
-    $$PWD/UbuntuColors.qml \
+    $$QML_UBUNTU_FILES \
     $$PWD/BusyIndicator.qml \
-    $$PWD/Button.qml
+    $$PWD/Button.qml \
+    $$PWD/CheckBox.qml
 
 # yet
 OTHER_FILES += QML_FILES
