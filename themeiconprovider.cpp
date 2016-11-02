@@ -84,7 +84,6 @@ private:
     IconTheme(const QString &name): name(name)
     {
         const QStringList paths = QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation);
-        qDebug() << paths;
 
         Q_FOREACH(const QString &path, paths) {
             QDir dir(path + QStringLiteral("/icons/") + name);
