@@ -21,18 +21,6 @@ import QtQuick.Controls.Ubuntu 2.0
 T.CheckBox {
     id: control
 
-    implicitWidth: Math.max(background ? background.implicitWidth : 0,
-                            contentItem.implicitWidth + leftPadding + rightPadding)
-    implicitHeight: Math.max(background ? background.implicitHeight : 0,
-                             Math.max(contentItem.implicitHeight,
-                                      indicator ? indicator.implicitHeight : 0) + topPadding + bottomPadding)
-    baselineOffset: contentItem.y + contentItem.baselineOffset
-
-    spacing: 8
-    padding: 8
-    topPadding: padding + 7
-    bottomPadding: padding + 7
-
     // icon padding is units.gu(0.4)
     property real iconPadding: 2
 
@@ -81,11 +69,24 @@ T.CheckBox {
      */
     property color pressedIconColor: Qt.darker(iconColor,1.3)
 
+    implicitWidth: Math.max(background ? background.implicitWidth : 0,
+                            contentItem.implicitWidth + leftPadding + rightPadding)
+    implicitHeight: Math.max(background ? background.implicitHeight : 0,
+                             Math.max(contentItem.implicitHeight,
+                                      indicator ? indicator.implicitHeight : 0) + topPadding + bottomPadding)
+    baselineOffset: contentItem.y + contentItem.baselineOffset
+
+    spacing: 8
+    padding: 8
+    topPadding: padding + 7
+    bottomPadding: padding + 7
+
     //! [indicator]
     indicator: Rectangle {
         id: background
 
         property real iconSize: Math.min(width, height) - 2*control.iconPadding
+        property color backgroundColor: control.checkState === Qt.Unchecked ? control.uncheckedBackgroundColor : control.checkedBackgroundColor
 
         x: text ? (control.mirrored ? control.width - width - control.rightPadding : control.leftPadding) : control.leftPadding + (control.availableWidth - width) / 2
         y: control.topPadding + (control.availableHeight - height) / 2
@@ -96,8 +97,6 @@ T.CheckBox {
         //should be units.gu(2)
         implicitWidth: 20
         implicitHeight: 20
-
-        property color backgroundColor: control.checkState === Qt.Unchecked ? control.uncheckedBackgroundColor : control.checkedBackgroundColor
 
         color: control.pressed ?
                  (control.checkState == Qt.Unchecked ? control.uncheckedBackgroundColorPressed : control.checkedBackgroundColorPressed)
@@ -111,7 +110,14 @@ T.CheckBox {
         }
 
         border.width: control.visualFocus ? 2 : 1
-        border.color: control.enabled ? (control.visualFocus ? control.UbuntuStyle.normal.focus : (control.down ? "#808080" : "#909090")) : control.UbuntuStyle.normal.foreground
+        border.color: control.enabled ? UbuntuStyle.normal.base : UbuntuStyle.disabled.base
+
+        Behavior on border.color {
+            ColorAnimation {
+                duration: UbuntuAnimation.FastDuration
+                easing: control.enabled ? UbuntuAnimation.StandardEasingReverse : UbuntuAnimation.StandardEasing
+            }
+        }
 
         Icon {
             id: tick
