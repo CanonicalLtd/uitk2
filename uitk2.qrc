@@ -219,5 +219,6 @@
         <file>icons/theme/voicemail.svg</file>
         <file>icons/theme/zoom-in.svg</file>
         <file>icons/theme/zoom-out.svg</file>
+        <file>icons/theme/mixed.svg</file>
     </qresource>
 </RCC>

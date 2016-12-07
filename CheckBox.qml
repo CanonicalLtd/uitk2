@@ -56,7 +56,12 @@ T.CheckBox {
     /*!
       The image to show inside the checkbox when it is checked.
      */
-    property string iconName: "qrc:/ubuntu.com/icons/theme/tick.svg"
+    property string tickIconName: "qrc:/ubuntu.com/icons/theme/tick.svg"
+
+    /*!
+      The image to show inside the checkbox when it is in mixed state.
+     */
+    property string mixedIconName: "qrc:/ubuntu.com/icons/theme/mixed.svg"
 
     /*!
       The color of the icon.
@@ -121,34 +126,26 @@ T.CheckBox {
 
         Icon {
             id: tick
-            /*
-            x: (parent.implicitWidth - width) / 2
-            y: (parent.implicitHeight - height) / 2
-            */
             anchors.centerIn: parent
             width:  background.iconSize
             height: background.iconSize
+            source: control.tickIconName
             smooth: true
-            source: control.iconName
             color: control.pressed ? control.pressedIconColor : control.iconColor
             visible: control.checkState === Qt.Checked
         }
 
         //tri state partially checked indicator
-        Rectangle {
+        Icon {
             id: slash
-            /*
-            x: (parent.width - width) / 2
-            y: (parent.height - height) / 2
-            */
             anchors.centerIn: parent
-            width: background.width / 2
-            height: background.height / 10
+            width:  background.iconSize
+            height: background.iconSize
+            source: control.mixedIconName
+            smooth: true
             color: control.pressed ? control.pressedIconColor : control.iconColor
             visible: control.checkState === Qt.PartiallyChecked
         }
-
-
 
         state: control.checkState === Qt.Unchecked
                ? "unchecked" : (control.checkState === Qt.Checked ? "checked" : "mixed")
