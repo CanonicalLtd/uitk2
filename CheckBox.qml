@@ -133,6 +133,14 @@ T.CheckBox {
             smooth: true
             color: control.pressed ? control.pressedIconColor : control.iconColor
             visible: control.checkState === Qt.Checked
+
+            Behavior on color {
+                ColorAnimation {
+                    duration: UbuntuAnimation.FastDuration
+                    easing: control.enabled ? UbuntuAnimation.StandardEasingReverse : UbuntuAnimation.StandardEasing
+                }
+            }
+
         }
 
         //tri state partially checked indicator
@@ -145,6 +153,13 @@ T.CheckBox {
             smooth: true
             color: control.pressed ? control.pressedIconColor : control.iconColor
             visible: control.checkState === Qt.PartiallyChecked
+
+            Behavior on color {
+                ColorAnimation {
+                    duration: UbuntuAnimation.FastDuration
+                    easing: control.enabled ? UbuntuAnimation.StandardEasingReverse : UbuntuAnimation.StandardEasing
+                }
+            }
         }
 
         state: control.checkState === Qt.Unchecked
