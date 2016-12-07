@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg id="svg4874" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="96" viewBox="0 0 96 96.000001" width="96" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+ <metadata id="metadata4879">
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <g id="layer1" transform="translate(67.857 -78.505)">
+  <rect id="rect4782-9" style="color:#000000;fill:none" transform="rotate(90)" height="96" width="96" y="-28.143" x="78.505"/>
+  <path id="path4122-7" d="m8.8195 128.51h-76.676v-4.0004l76.676 0.002z" style="color-rendering:auto;text-decoration-color:#000000;color:#000000;font-variant-numeric:normal;shape-rendering:auto;solid-color:#000000;text-decoration-line:none;fill:#808080;font-variant-position:normal;mix-blend-mode:normal;font-feature-settings:normal;shape-padding:0;font-variant-alternates:normal;text-indent:0;font-variant-caps:normal;image-rendering:auto;white-space:normal;text-decoration-style:solid;font-variant-ligatures:normal;isolation:auto;text-transform:none"/>
+  <path id="rect4197" d="m24.143 114.5 4-1v25h-4z" style="color:#000000;fill:#808080"/>
+  <path id="path5588-9-2" style="color:#000000;fill:#808080" d="m2.1432 114.5 0.0076 24c3.6501-1.6688 7.366-3.5359 11.149-5.5987 3.7477-2.0678 7.3628-4.2005 10.843-6.4003-3.48-2.1557-7.0951-4.2681-10.843-6.3358-3.7853-2.0639-7.5033-3.9519-11.155-5.6652z"/>
+ </g>
+</svg>

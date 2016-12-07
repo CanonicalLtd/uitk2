@@ -56,7 +56,7 @@ T.CheckBox {
     /*!
       The image to show inside the checkbox when it is checked.
      */
-    property string iconName: "tick"
+    property string iconName: "qrc:/ubuntu.com/icons/theme/tick.svg"
 
     /*!
       The color of the icon.
@@ -129,7 +129,7 @@ T.CheckBox {
             width:  background.iconSize
             height: background.iconSize
             smooth: true
-            name: control.iconName
+            source: control.iconName
             color: control.pressed ? control.pressedIconColor : control.iconColor
             visible: control.checkState === Qt.Checked
         }

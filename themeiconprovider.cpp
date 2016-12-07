@@ -83,7 +83,9 @@ private:
 
     IconTheme(const QString &name): name(name)
     {
-        const QStringList paths = QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation);
+        const QStringList paths = QStringList()
+            << QStringLiteral("qrc:/ubuntu.com")
+            << QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation);
 
         Q_FOREACH(const QString &path, paths) {
             QDir dir(path + QStringLiteral("/icons/") + name);

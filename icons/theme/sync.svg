@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg id="svg4874" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="96" viewBox="0 0 96 96.000001" width="96" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+ <metadata id="metadata4879">
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <g id="layer1" transform="translate(67.857 -78.505)">
+  <rect id="rect4782-3" style="color:#000000;fill:none" transform="rotate(90)" height="96" width="96" y="-28.143" x="78.505"/>
+  <path id="path5823" d="m17.073 93.463-16.965 16.977c3.761 1.401 7.7088 2.7082 11.843 3.9248 4.1122 1.1879 8.1765 2.2361 12.193 3.1414-0.93642-3.9851-1.9991-8.035-3.187-12.147-1.2172-4.136-2.5112-8.1001-3.8822-11.894z" style="color:#000000;fill:#808080"/>
+  <path id="path5825" style="color:#000000;fill:#808080" d="m-56.822 159.51 16.965-16.976c-3.761-1.401-7.7088-2.7082-11.843-3.9248-4.1122-1.1879-8.1765-2.2361-12.193-3.1414 0.93642 3.9851 1.9991 8.035 3.187 12.147 1.2172 4.136 2.5112 8.1001 3.8821 11.894z"/>
+  <path id="path4229" style="color-rendering:auto;text-decoration-color:#000000;color:#000000;font-variant-numeric:normal;shape-rendering:auto;solid-color:#000000;text-decoration-line:none;fill:#808080;font-variant-position:normal;mix-blend-mode:normal;font-feature-settings:normal;shape-padding:0;font-variant-alternates:normal;text-indent:0;font-variant-ligatures:normal;dominant-baseline:auto;font-variant-caps:normal;image-rendering:auto;white-space:normal;text-decoration-style:solid;text-orientation:mixed;isolation:auto;text-transform:none" d="m48 8c-22.068 0-40 17.932-40 40 0 0.652 0.0198 1.301 0.0508 1.945 1.3552 0.336 2.7162 0.686 4.0822 1.053-0.082-0.989-0.133-1.988-0.133-2.998 0-19.906 16.094-36 36-36 13.005 0 24.379 6.872 30.705 17.186l2.859-2.862c-7.118-11.015-19.487-18.324-33.564-18.324zm35.863 36.969c0.084 1 0.137 2.009 0.137 3.031 0 19.906-16.094 36-36 36-13.025 0-24.416-6.892-30.736-17.232l-2.879 2.88c7.126 11.034 19.522 18.352 33.615 18.352 22.068 0 40-17.932 40-40a2.0002 2.0002 0 0 0 -0.041 -0.406c-0.005-0.532-0.031-1.058-0.057-1.584-1.341-0.332-2.687-0.679-4.039-1.041z" transform="translate(-67.857 78.505)"/>
+ </g>
+</svg>
