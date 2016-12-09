@@ -26,3 +26,6 @@ QML_FILES += \
 
 # yet
 OTHER_FILES += QML_FILES
+
+RESOURCES += \
+    $$PWD/uitk2.qrc
