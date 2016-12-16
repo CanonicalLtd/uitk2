@@ -41,6 +41,7 @@ void SuruNormal::lightColors()
     m_colors[Field] = UbuntuStyle::color(UbuntuStyle::White);
     m_colors[FieldText] = UbuntuStyle::color(UbuntuStyle::Jet);
     m_colors[Focus] = UbuntuStyle::color(UbuntuStyle::Blue);
+
     m_colors[FocusText] = UbuntuStyle::color(UbuntuStyle::White);
     m_colors[Selection] = UbuntuStyle::color(UbuntuStyle::Blue, 0.2);
     m_colors[SelectionText] = UbuntuStyle::color(UbuntuStyle::Jet);
