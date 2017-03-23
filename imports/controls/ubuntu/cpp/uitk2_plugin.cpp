@@ -41,7 +41,7 @@ void Uitk2Plugin::registerTypes(const char *uri)
     Q_UNUSED(uri);
     m_pluginBase = baseUrl();
 
-    qmlRegisterUncreatableType<UbuntuStyle>(uri, 2, 0, "UbuntuStyle", QStringLiteral("UbuntuStyle is an attached object"));
+    qmlRegisterUncreatableType<UbuntuStyle>(uri, 2, 0, "Ubuntu", QStringLiteral("UbuntuStyle is an attached object"));
     qmlRegisterUncreatableType<PaletteValues>(uri, 2, 0, "PaletteValues", QStringLiteral("PaletteValues cannot be instantiated"));
     qmlRegisterSimpleSingletonType<UbuntuAnimation>(uri, 2, 0, "UbuntuAnimation");
     qmlRegisterType<UbuntuNumberAnimation>(uri, 2, 0, "UbuntuNumberAnimation");
