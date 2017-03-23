@@ -1,19 +1,28 @@
 sudo: required
-dist: xenial
 language: c++
+services:
+  - docker
 
-install:
-  - sudo add-apt-repository --yes ppa:ubuntu-sdk-team/ppa
+before_install:
+  - docker pull ubuntu:xenial
+  - docker run -i -d --name xe ubuntu:xenial bash
+  # docker exec xe bash -c "echo deb http://ppa.launchpad.net/ubuntu-sdk-team/ppa/ubuntu xenial main >> /etc/apt/sources.list"
+  - docker exec xe bash -c "echo deb http://ppa.launchpad.net/ci-train-ppa-service/stable-phone-overlay/ubuntu xenial main >> /etc/apt/sources.list"
   # FIXME: temporary work-around to get the latest packaging fixes
-  - sudo add-apt-repository --yes ppa:ci-train-ppa-service/1949
-  - sudo apt-get update -qq
-  - sudo apt-get install -qq qt5-qmake qtbase5-dev qtdeclarative5-dev libsqlite3-dev qt5-default qtdeclarative5-private-dev qtquickcontrols2-5-private-dev qml-module-qtquick-controls2 qml-module-qtquick-templates2
-  - sudo apt-get install -qq gnupg1 || sudo apt-get install -qq gnupg
+  - docker exec xe bash -c "echo deb http://ppa.launchpad.net/ci-train-ppa-service/1949/ubuntu xenial main >> /etc/apt/sources.list"
+  - docker exec xe cat /etc/apt/sources.list
+  - docker exec xe apt-get update -qq
+  - docker exec xe apt-get install -qq --allow-unauthenticated qt5-qmake qtbase5-private-dev qtdeclarative5-dev libsqlite3-dev qt5-default qtdeclarative5-private-dev qtquickcontrols2-5-private-dev qml-module-qtquick-controls2 qml-module-qtquick-templates2 make g++ xvfb qml-module-qtquick2 qml-module-qtquick-window2 qml-module-qtgraphicaleffects qml-module-qtquick-controls2 qml-module-qttest
+  - docker exec xe apt-get install -qq gnupg1 || sudo apt-get install -qq gnupg
 
 script:
-  - qmake -v
-  - qmake
-  - make
-  - cp ./{imports/controls/ubuntu/qmldir,qml/QtQuick/Controls.2/Ubuntu/}
-  - QML2_IMPORT_PATH=$PWD/qml make check
+  - pwd
+  - docker cp . xe:/root
+  - docker exec xe ls /root
+  - docker exec xe bash -c "cd /root; qmake"
+  - docker exec xe bash -c "cd /root; make"
+  - docker exec xe bash -c "cd /root; ls"
+  - docker exec xe bash -c "cd /root; cp ./{imports/controls/ubuntu/qmldir,qml/QtQuick/Controls.2/Ubuntu/}"
+  - docker exec xe bash -c "cd /root; ls qml/QtQuick/Controls.2/Ubuntu/"
+  - docker exec xe bash -c "cd /root; QML2_IMPORT_PATH=/root/qml xvfb-run -a -s '-screen 0 1280x1024x24' make check"
 
