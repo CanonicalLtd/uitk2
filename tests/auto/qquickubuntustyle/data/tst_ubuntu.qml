@@ -3,30 +3,67 @@ import QtQuick.Window 2.2
 import QtTest 1.0
 import QtQuick.Templates 2.0 as T
 import QtQuick.Controls 2.0
-// FIXME: import QtQuick.Controls.Ubuntu 2.0
+import QtQuick.Controls.Ubuntu 2.0
 
 TestCase {
     id: testCase
-    width: 200
-    height: 200
+    width: 800
+    height: 600
     visible: true
     when: windowShown
     name: "Ubuntu"
 
+    Column {
+        //should be units.gu(4)
+        padding: 32
+        spacing: padding
+        Repeater {
+            model: [button, styledButton, coloredButton, comboBox]
+
+            Loader {
+                sourceComponent: modelData
+                asynchronous: true
+                visible: status == Loader.Ready
+            }
+        }
+    }
+
     Component {
         id: button
-        Button { }
+        Button {
+            text: "Heat up the pan"
+        }
     }
 
     Component {
         id: styledButton
         Button {
-            /* FIXME:
-            Ubuntu.theme: Ubuntu.SuruDark
-            Ubuntu.normal.Background: Ubuntu.Orange
-            */
+            text: "Bring the water to a boil"
+            UbuntuStyle.theme: UbuntuStyle.SuruDark
+            background: Rectangle {
+                color: pressed ? UbuntuStyle.highlighted.foreground : UbuntuStyle.normal.foreground
+            }
+            contentItem: Label {
+                text: parent.text
+                color: UbuntuStyle.normal.foregroundText
+            }
         }
     }
+
+    Component {
+        id: coloredButton
+        Button {
+            text: "Cut the vegetables"
+            background: Rectangle {
+                color: pressed ? UbuntuStyle.color(UbuntuStyle.Graphite) : UbuntuStyle.color(UbuntuStyle.Orange)
+            }
+            contentItem: Label {
+                text: parent.text
+                color: UbuntuStyle.color(UbuntuStyle.Jet)
+            }
+        }
+    }
+
 
     Component {
         id: window
@@ -83,7 +120,7 @@ TestCase {
                 Label {
                     id: labelInstance
                     text: "test"
-                 // FIXME: color: popupInstance.Ubuntu.selected
+                    color: popupInstance.UbuntuStyle.selected.foregroundText
                 }
                 Component.onCompleted: open()
             }
@@ -91,7 +128,7 @@ TestCase {
                 contentItem: Label {
                     id: labelInstance2
                     text: "test"
-                 // FIXME: color: popupInstance.Ubuntu.selected
+                    color: popupInstance.UbuntuStyle.selected.foregroundText
                 }
                 Component.onCompleted: open()
             }
@@ -100,15 +137,9 @@ TestCase {
 
     Component {
         id: comboBox
-        ApplicationWindow {
-            width: 200
-            height: 200
-            visible: true
-            property alias combo: box
-            ComboBox {
-                id: box
-                model: 1
-            }
+        ComboBox {
+            id: box
+            model: [ 'Kaviar', 'Rocket', 'Quail Eggs' ]
         }
     }
 
@@ -126,34 +157,18 @@ TestCase {
     function test_defaults() {
         var control = button.createObject(testCase)
         verify(control)
-        verify(control.Ubuntu)
-        /* FIXME:
-        compare(control.Ubuntu.normal.Background, Ubuntu.color(Ubuntu.White))
-        compare(control.Ubuntu.normal.BackgroundText, Ubuntu.color(Ubuntu.Jet))
-        compare(control.Ubuntu.theme, Ubuntu.Suru)
-        */
+        verify(control.UbuntuStyle)
+        compare(control.UbuntuStyle.theme, UbuntuStyle.Suru)
+        compare(control.UbuntuStyle.normal.background, UbuntuStyle.color(UbuntuStyle.White))
         control.destroy()
     }
 
-    function test_set() {
-        var control = button.createObject(testCase)
-        verify(control)
-        /* FIXME:
-        control.Ubuntu.normal.Background = Ubuntu.Orange
-        compare(control.Ubuntu.normal.Background, Ubuntu.color(Ubuntu.Orange))
-        */
-        control.destroy()
-    }
-
-    function test_reset() {
+    function test_dark() {
         var control = styledButton.createObject(testCase)
         verify(control)
-        compare(control.Ubuntu.normal.Background, Ubuntu.color(Ubuntu.Orange))
-        compare(control.Ubuntu.theme, Ubuntu.SuruDark)
-        control.Ubuntu.normal.Background = undefined
-        control.Ubuntu.theme = undefined
-        compare(control.Ubuntu.normal.Background, testCase.Ubuntu.normal.Background)
-        compare(control.Ubuntu.theme, testCase.Ubuntu.theme)
+        verify(control.UbuntuStyle)
+        compare(control.UbuntuStyle.theme, UbuntuStyle.SuruDark)
+        compare(control.UbuntuStyle.normal.background, UbuntuStyle.color(UbuntuStyle.Jet))
         control.destroy()
     }
 }
