@@ -39,13 +39,13 @@ TestCase {
         id: styledButton
         Button {
             text: "Bring the water to a boil"
-            UbuntuStyle.theme: UbuntuStyle.SuruDark
+            Ubuntu.theme: Ubuntu.SuruDark
             background: Rectangle {
-                color: pressed ? UbuntuStyle.highlighted.foreground : UbuntuStyle.normal.foreground
+                color: pressed ? Ubuntu.highlighted.foreground : Ubuntu.normal.foreground
             }
             contentItem: Label {
                 text: parent.text
-                color: UbuntuStyle.normal.foregroundText
+                color: Ubuntu.normal.foregroundText
             }
         }
     }
@@ -55,11 +55,11 @@ TestCase {
         Button {
             text: "Cut the vegetables"
             background: Rectangle {
-                color: pressed ? UbuntuStyle.color(UbuntuStyle.Graphite) : UbuntuStyle.color(UbuntuStyle.Orange)
+                color: pressed ? Ubuntu.color(Ubuntu.Graphite) : Ubuntu.color(Ubuntu.Orange)
             }
             contentItem: Label {
                 text: parent.text
-                color: UbuntuStyle.color(UbuntuStyle.Jet)
+                color: Ubuntu.color(Ubuntu.Jet)
             }
         }
     }
@@ -120,7 +120,7 @@ TestCase {
                 Label {
                     id: labelInstance
                     text: "test"
-                    color: popupInstance.UbuntuStyle.selected.foregroundText
+                    color: popupInstance.Ubuntu.selected.foregroundText
                 }
                 Component.onCompleted: open()
             }
@@ -128,7 +128,7 @@ TestCase {
                 contentItem: Label {
                     id: labelInstance2
                     text: "test"
-                    color: popupInstance.UbuntuStyle.selected.foregroundText
+                    color: popupInstance.Ubuntu.selected.foregroundText
                 }
                 Component.onCompleted: open()
             }
@@ -157,18 +157,18 @@ TestCase {
     function test_defaults() {
         var control = button.createObject(testCase)
         verify(control)
-        verify(control.UbuntuStyle)
-        compare(control.UbuntuStyle.theme, UbuntuStyle.Suru)
-        compare(control.UbuntuStyle.normal.background, UbuntuStyle.color(UbuntuStyle.White))
+        verify(control.Ubuntu)
+        compare(control.Ubuntu.theme, Ubuntu.Suru)
+        compare(control.Ubuntu.normal.background, Ubuntu.color(Ubuntu.White))
         control.destroy()
     }
 
     function test_dark() {
         var control = styledButton.createObject(testCase)
         verify(control)
-        verify(control.UbuntuStyle)
-        compare(control.UbuntuStyle.theme, UbuntuStyle.SuruDark)
-        compare(control.UbuntuStyle.normal.background, UbuntuStyle.color(UbuntuStyle.Jet))
+        verify(control.Ubuntu)
+        compare(control.Ubuntu.theme, Ubuntu.SuruDark)
+        compare(control.Ubuntu.normal.background, Ubuntu.color(Ubuntu.Jet))
         control.destroy()
     }
 }
