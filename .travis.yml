@@ -8,8 +8,6 @@ before_install:
   - docker run -i -d --name xe ubuntu:xenial bash
   # docker exec xe bash -c "echo deb http://ppa.launchpad.net/ubuntu-sdk-team/ppa/ubuntu xenial main >> /etc/apt/sources.list"
   - docker exec xe bash -c "echo deb http://ppa.launchpad.net/ci-train-ppa-service/stable-phone-overlay/ubuntu xenial main >> /etc/apt/sources.list"
-  # FIXME: temporary work-around to get the latest packaging fixes
-  - docker exec xe bash -c "echo deb http://ppa.launchpad.net/ci-train-ppa-service/1949/ubuntu xenial main >> /etc/apt/sources.list"
   - docker exec xe cat /etc/apt/sources.list
   - docker exec xe apt-get update -qq
   - docker exec xe apt-get install -qq --allow-unauthenticated qt5-qmake qtbase5-private-dev qtdeclarative5-dev libsqlite3-dev qt5-default qtdeclarative5-private-dev qtquickcontrols2-5-private-dev qml-module-qtquick-controls2 qml-module-qtquick-templates2 make g++ xvfb qml-module-qtquick2 qml-module-qtquick-window2 qml-module-qtgraphicaleffects qml-module-qtquick-controls2 qml-module-qttest
